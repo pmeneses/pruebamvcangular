@@ -1,0 +1,51 @@
+﻿@*@model pruebamvc.persona*@
+@model pruebamvc.Models.personaModels
+
+@{
+    ViewBag.Title = "Create";
+}
+
+@section scripts
+{
+      <script src="~/Scripts/persona.js" ></script>
+}
+
+<div ng-controller="PersonaController">
+        <h2>Create</h2>
+      @* @using (Html.BeginForm()) {
+            @Html.ValidationSummary(true)*@
+
+     <form name="userForm">
+            <fieldset>
+                    <legend>persona</legend>
+
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.nombre)
+                    </div>
+                    <div class="editor-field">
+                        <input type="text" name="nombre" placeholder="cual es tu nombre" class="form-control" ng-model="Persona.nombre" required="Nombre obligatorio"/>
+                        <span ng-show="userForm.nombre.$dirty && userForm.nombre.$error.required" class="text-danger pull-right">el nombre es rrequerido</span>
+                    </div>
+                    <div class="editor-field">
+                        <input type="text" name="apellidos" placeholder="cual es tu nombre" class="form-control" ng-model="Persona.apellidos" required/>
+                        <span ng-show="userForm.apellidos.$dirty && userForm.apellidos.$error.required" class="text-danger pull-right">el nombre es rrequerido</span>
+                    </div>
+                    <div class="editor-field">
+                        <input type="text" name="telefono" placeholder="cual es tu nombre" class="form-control" ng-model="Persona.telefono" required/>
+                        <span ng-show="userForm.telefono.$dirty && userForm.telefono.$error.required" class="text-danger pull-right">el nombre es rrequerido</span>
+                    </div>
+                    <div>
+                        <input type="submit" ng-click="userForm.$valid && add_persona(Persona)" class="btn btn-primary pull-right" value="Registrar">
+                    </div>               
+                </fieldset>
+         </form>
+ @*     }*@
+
+        <div>
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+</div>
+
+@*@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}*@

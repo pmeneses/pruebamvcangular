@@ -1,0 +1,36 @@
+﻿@model IEnumerable<pruebamvc.persona>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@section scripts
+{
+      <script src="~/Scripts/persona.js" ></script>
+}
+
+<div ng-controller = "PersonaController">
+    <h2>Index</h2>
+        <p>
+            @Html.ActionLink("Create New", "Create")
+            <input type="text" placeholder="Search Student" ng-model="searchperson" />
+        </p>
+        <table>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.nombre)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.apellidos)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.telefono)
+                </th>
+            </tr>
+            <tr ng-repeat="per in persona | filter : searchperson">
+                <td>{{per.nombre}}</td>
+                <td>{{per.apellidos}}</td>
+                <td>{{per.telefono}}</td>
+            </tr>
+    </table>
+</div>
